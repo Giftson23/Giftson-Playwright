@@ -25,7 +25,7 @@ export class CreateTestPlan extends BasePage{
         this.FloorTypeDropdown = page.locator('app-dropdown').filter({ hasText: 'Floor Type' }).getByRole('textbox');
         this.SelectWorkspace = page.locator('app-dropdown').filter({ hasText: 'Select Workspace' }).getByRole('textbox');
         this.SelectThreshold = page.locator('app-dropdown').filter({ hasText: 'Select Threshold' }).getByRole('textbox');
-        this.PlanNameTextbox = page.getByRole('textbox', { name: 'Plan Name' });
+        this.PlanNameTextbox = page.locator('input[type="text"]').nth(2);
         this.SaveButton = page.getByRole('button', { name: 'Save' });
     }
 
