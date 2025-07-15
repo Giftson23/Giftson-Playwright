@@ -1,0 +1,32 @@
+import { test, expect } from '@playwright/test';
+
+// test('test', async ({ page }) => {
+//   await page.goto('http://18.213.235.104:8080/#/login');
+//   await page.getByRole('button', { name: 'USER LOGIN' }).click();
+//   await page.getByRole('textbox', { name: 'USERNAME' }).click();
+//   await page.getByRole('textbox', { name: 'USERNAME' }).press('Tab');
+//   await page.getByRole('textbox', { name: 'PASSWORD' }).fill('Propel@123');
+//   await page.getByRole('button', { name: 'LOGIN', exact: true }).click();
+//   await page.getByRole('textbox', { name: 'USERNAME' }).click();
+//   await page.getByRole('textbox', { name: 'PASSWORD' }).click();
+//   await page.getByRole('textbox', { name: 'PASSWORD' }).press('Enter');
+//   await page.goto('http://18.213.235.104:8080/#/company/management');
+//   await page.getByText('Test Plan').click();
+//   await page.getByRole('button', { name: 'Create New Test Plan' }).click();
+//   await page.locator('app-dropdown').filter({ hasText: 'Select Building' }).getByRole('textbox').click();
+//   await page.locator('app-dropdown').filter({ hasText: 'Select Building QA Automation' }).getByRole('textbox').click();
+//   await page.locator('app-dropdown').filter({ hasText: 'Select Building QA Automation' }).getByRole('textbox').click();
+//   await page.locator('app-dropdown').filter({ hasText: 'Select Building QA Automation' }).getByRole('textbox').fill('RSD');
+//   await page.getByText('BuildingSelect BuildingNo Data').click();
+//   await page.locator('div').filter({ hasText: /^Floor Type$/ }).nth(1).click();
+//   await page.getByText('BuildingSelect Building').click();
+//   await page.locator('app-dropdown').filter({ hasText: 'Floor Type' }).locator('div').nth(3).click();
+//   await page.getByText('Central').click();
+//   await page.locator('app-dropdown').filter({ hasText: 'Select Floor' }).getByRole('textbox').click();
+//   await page.locator('app-dropdown').filter({ hasText: 'Select FloorNo Data' }).getByRole('textbox').fill('2');
+//   await page.getByText('FloorsFloor TypeSelect').click();
+//   await page.locator('app-dropdown').filter({ hasText: 'Select FloorNo Data' }).getByRole('textbox').click();
+//   await page.locator('app-dropdown').filter({ hasText: 'Select Workspace' }).getByRole('textbox').click();
+//   await page.getByText('No Data').click();
+//   await page.locator('.image-add-gray').click();
+// });
