@@ -9,7 +9,7 @@ export class CreateBuilding{
      readonly CustomerNameTextbox: Locator;
      readonly StreetTextbox: Locator;
      readonly CityTextbox: Locator;
-     readonly StateDropDown: Locator;
+     readonly StateTextbox: Locator;
      readonly ZipCodeTextbox: Locator;
      readonly CountyButton: Locator;
      readonly AddNewCountyButton :Locator;
@@ -21,16 +21,17 @@ export class CreateBuilding{
      readonly AHJTypeDropDown :Locator;
      readonly RadioSystemDropDown :Locator;
      readonly CreateBuildingButton :Locator;
+     readonly Page:Locator;
      
     constructor(page){
-        //this.Page = page;
+        this.Page = page;
         this.AddBuildingButton = page.getByRole('button', { name: 'Add Building' });   
         this.OkButton = page.getByRole('button', { name: 'OK' })
         this.BuildingNameTextbox = page.getByRole('combobox', { name: 'Building Name' });
         this.CustomerNameTextbox = page.getByRole('textbox', { name: 'Customer Name (Optional)' });
         this.StreetTextbox = page.getByRole('combobox', { name: 'Street' });
         this.CityTextbox = page.getByRole('textbox', { name: 'City' });
-        this.StateDropDown =page.locator('app-dropdown').filter({ hasText: 'State' }).locator('div').nth(2);
+        this.StateTextbox =page.getByLabel('State');
         this.ZipCodeTextbox = page.getByRole('textbox', { name: 'ZIP Code' });
         this.CountyButton = page.getByLabel('County');
         this.AddNewCountyButton = page.getByText('Add New County');
@@ -74,9 +75,11 @@ export class CreateBuilding{
         await this.CityTextbox.fill(City);
     }
 
-    async selectStateDropDown(State)
+    async enterStateTextbox(State)
     {
-        await this.StateDropDown.selectOption(State);
+        //await this.StateTextbox.selectOption(State);
+        await this.StateTextbox.click();
+        await this.StateTextbox.pressSequentially(State);
     }
 
     async enterZipCode(ZipCode)

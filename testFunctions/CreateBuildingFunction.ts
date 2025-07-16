@@ -11,7 +11,7 @@ export async function CreateNewBuilding(page, BuildingRecord){
         await createbuilding.enterCustomerName(BuildingRecord.CustomerName);
         await createbuilding.enterStreetName(BuildingRecord.Street);
         await createbuilding.enterCityName(BuildingRecord.City);
-        await createbuilding.selectStateDropDown(BuildingRecord.State);
+        await createbuilding.enterStateTextbox(BuildingRecord.State);
         await createbuilding.enterZipCode(BuildingRecord.ZipCode);
         await createbuilding.clickCounty();
         await createbuilding.addNewCounty();

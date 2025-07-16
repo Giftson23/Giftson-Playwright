@@ -17,5 +17,5 @@ export async function CreateNewTestPlan(page,planRecord,planDropDown){
         await createnewtestplan.enterPlanNameTextbox(planRecord.PlanName);
         await createnewtestplan.clickSaveButton();
         await createnewtestplan.verifyTestPlanSuccess();
-        await page.waitForTimeout(100000);
+        //await page.waitForTimeout(100000);
     }
