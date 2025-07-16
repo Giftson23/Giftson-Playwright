@@ -12,6 +12,8 @@ import { parse } from 'csv-parse/sync';
 import fs from 'fs';
 import path from 'path';
 
+
+
 const Create_Building = parse(
   fs.readFileSync(path.join(__dirname, "../testData/CreateBuilding.csv")),
   {
@@ -32,7 +34,11 @@ const testPlanData = parse(fs.readFileSync(path.join(__dirname, "../testData/Cre
         skip_empty_lines: true,
     });
 
-
+const uploadDropdowns = parse(fs.readFileSync(path.join(__dirname, "../testData/Upload_Report.csv")),
+    {
+        columns: true,
+        skip_empty_lines: true,
+    });
 
 test.beforeEach('user launches URL',async({ page })=>{
 
@@ -61,6 +67,12 @@ for (const planRecord of testPlanData) {
   }
 
 
-test('Test Case 3: Upload the report', async ({ page }) => {
-  await UploadReportFunction(page);
+for(const uploadDropdown of uploadDropdowns){
+
+  test('Test Case 3: Upload the report', async ({ page }) => {
+
+  await UploadReportFunction(page,uploadDropdown);
+  
 });
+}
+
