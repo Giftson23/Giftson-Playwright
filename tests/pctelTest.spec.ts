@@ -60,7 +60,7 @@ for (const planRecord of testPlanData) {
     for (const planDropDown of testPlanDropDowns) {
 
       test('Test Case 2: Create a test plan', async ({ page }) => {
-        await CreateNewTestPlan(page,planRecord,planDropDown);
+        await CreateNewTestPlan(page,test,planRecord,planDropDown);
         
       });
     }
@@ -72,7 +72,7 @@ for(const uploadDropdown of uploadDropdowns){
   test('Test Case 3: Upload the report', async ({ page }) => {
 
   await UploadReportFunction(page,uploadDropdown);
-  
+
 });
 }
 
