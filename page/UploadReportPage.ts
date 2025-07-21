@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { Page, Locator } from '@playwright/test';
 import { LoginHelper } from '../helpers/LoginHelper.ts'
 
@@ -15,6 +15,7 @@ export class UploadReport{
      readonly Uploadtab : Locator;
      readonly Page : Locator;
      readonly CheckboxSelect : Locator;
+     readonly UploadReportSuccess: Locator;
      config: LoginHelper;
 
      constructor(page){
@@ -25,10 +26,11 @@ export class UploadReport{
         this.ChooseFile = page.locator("//input[@type='file']");
         this.SelectTestTypeDropDown = page.getByRole('textbox', { name: 'Select Test Type' });
         this.SelectBuildingButton = page.locator('input[type="text"]');
-        this.CheckboxSelect = page.locator('.mat-checkbox-inner-container').first();
-        //this.SelectBuildingOption = page.getByRole('gridcell', { name: 'RSD Castle' }); 
+        //this.CheckboxSelect = page.locator('.mat-checkbox-inner-container').first();
+        this.CheckboxSelect = page.locator('span[class="mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin"]').nth(0); 
         this.SaveButton = page.getByRole('button', { name: 'Save' });
         this.NextButton = page.getByRole('button', { name: 'Next' });
+        this.UploadReportSuccess = page.locator("//div[text()='The report is being uploaded. Please check the Upload/Export Process tab for further details']");
         
     }
 
@@ -56,13 +58,13 @@ export class UploadReport{
     async clickSelectBuildingButton()
     {
         await this.SelectBuildingButton.click();
-    }
-
-    async clickSelectBuildingOption()
-    {
-        await this.SelectBuildingOption.click();
         await this.CheckboxSelect.click();
     }
+
+    // async clickSelectBuildingOption()
+    // {
+    //     await this.SelectBuildingOption.click();
+    // }
 
     async clickSaveButton()
     {
@@ -73,4 +75,8 @@ export class UploadReport{
     {
         await this.NextButton.click();
     }
+
+    async verifyUploadReportSuccess() {
+            await expect(this.UploadReportSuccess).toHaveText('The report is being uploaded. Please check the Upload/Export Process tab for further details');
+        }
 }

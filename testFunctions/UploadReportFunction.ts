@@ -10,9 +10,9 @@ export async function UploadReportFunction(page, uploadDropdown){
         await uploadreport.clickChooseFileButton(UPLOAD_FILE_PATH);
         await uploadreport.clickSelectTestTypeDropDown('Select Test Type', uploadDropdown.testType);
         await uploadreport.clickSelectBuildingButton();
-        await uploadreport.clickSelectBuildingOption();
         await uploadreport.clickSaveButton();
         await uploadreport.clickNextButton();
         await uploadreport.clickSaveButton();
+        await uploadreport.verifyUploadReportSuccess();
 
     }
