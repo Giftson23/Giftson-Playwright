@@ -8,37 +8,38 @@ import { LaunchPCTEL } from '../testFunctions/BasePageFunction.ts';
 import { CreateNewBuilding } from '../testFunctions/CreateBuildingFunction.ts';
 import { CreateNewTestPlan } from '../testFunctions/CreateTestPlanFunction.ts';
 import { UploadReportFunction } from '../testFunctions/UploadReportFunction.ts';
+import { Create_Building, testPlanDropDowns, testPlanData, uploadDropdowns } from '../utils/testDataParser';
 import { parse } from 'csv-parse/sync';
 import fs from 'fs';
 import path from 'path';
 
 
 
-const Create_Building = parse(
-  fs.readFileSync(path.join(__dirname, "../testData/CreateBuilding.csv")),
-  {
-    columns: true,
-    skip_empty_lines: true,
-  }
-);
+// const Create_Building = parse(
+//   fs.readFileSync(path.join(__dirname, "../testData/CreateBuilding.csv")),
+//   {
+//     columns: true,
+//     skip_empty_lines: true,
+//   }
+// );
 
-const testPlanDropDowns = parse(fs.readFileSync(path.join(__dirname, "../testData/TestPlanDropDowns.csv")),
-    {
-        columns: true,
-        skip_empty_lines: true,
-    });
+// const testPlanDropDowns = parse(fs.readFileSync(path.join(__dirname, "../testData/TestPlanDropDowns.csv")),
+//     {
+//         columns: true,
+//         skip_empty_lines: true,
+//     });
 
-const testPlanData = parse(fs.readFileSync(path.join(__dirname, "../testData/CreateTestPlan.csv")),
-    {
-        columns: true,
-        skip_empty_lines: true,
-    });
+// const testPlanData = parse(fs.readFileSync(path.join(__dirname, "../testData/CreateTestPlan.csv")),
+//     {
+//         columns: true,
+//         skip_empty_lines: true,
+//     });
 
-const uploadDropdowns = parse(fs.readFileSync(path.join(__dirname, "../testData/Upload_Report.csv")),
-    {
-        columns: true,
-        skip_empty_lines: true,
-    });
+// const uploadDropdowns = parse(fs.readFileSync(path.join(__dirname, "../testData/Upload_Report.csv")),
+//     {
+//         columns: true,
+//         skip_empty_lines: true,
+//     });
 
 test.beforeEach('user launches URL',async({ page })=>{
 

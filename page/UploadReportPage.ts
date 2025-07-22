@@ -31,6 +31,7 @@ export class UploadReport{
         this.SaveButton = page.getByRole('button', { name: 'Save' });
         this.NextButton = page.getByRole('button', { name: 'Next' });
         this.UploadReportSuccess = page.locator("//div[text()='The report is being uploaded. Please check the Upload/Export Process tab for further details']");
+
         
     }
 
@@ -76,7 +77,11 @@ export class UploadReport{
         await this.NextButton.click();
     }
 
-    async verifyUploadReportSuccess() {
-            await expect(this.UploadReportSuccess).toHaveText('The report is being uploaded. Please check the Upload/Export Process tab for further details');
-        }
+    // async verifyUploadReportSuccess() {
+    //         await expect(this.UploadReportSuccess).toHaveText('The report is being uploaded. Please check the Upload/Export Process tab for further details');
+    //     }
+    
+
+
+        
 }
